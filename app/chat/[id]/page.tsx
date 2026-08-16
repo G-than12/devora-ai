@@ -204,9 +204,40 @@ export default function ChatConversationPage() {
   };
 
   const handleCopy = (text: string, msgId: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(msgId);
-    setTimeout(() => setCopiedId(null), 2000);
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          setCopiedId(msgId);
+          setTimeout(() => setCopiedId(null), 2000);
+        })
+        .catch((err) => {
+          fallbackCopyTextToClipboard(text, msgId);
+        });
+    } else {
+      fallbackCopyTextToClipboard(text, msgId);
+    }
+  };
+
+  const fallbackCopyTextToClipboard = (text: string, msgId: string) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      const successful = document.execCommand("copy");
+      if (successful) {
+        setCopiedId(msgId);
+        setTimeout(() => setCopiedId(null), 2000);
+      }
+    } catch (err) {
+      console.error("Fallback: Oops, unable to copy", err);
+    }
+    document.body.removeChild(textArea);
   };
 
   if (!conversation) return null;
