@@ -23,7 +23,9 @@ Built with a brutalist-inspired, distraction-free user interface, Devora AI elim
 > **Note:** To add your own screenshot, take a screenshot of the app, place it in an `assets` folder, and update the image path below.
 
 <div align="center">
-  <img src="https://via.placeholder.com/1200x600/f8fafc/0f172a?text=Devora+AI+-+Dashboard+Screenshot+Placeholder" alt="Devora AI Dashboard Preview" style="border: 2px solid #000; box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);" />
+ <img width="1731" height="2550" alt="Screenshot_16-8-2026_231025_192 168 40 5" src="https://github.com/user-attachments/assets/7e0e1d0e-3c0a-43b2-bbde-a50106bba594" />
+ <img width="956" height="478" alt="Screenshot 2026-08-16 233820" src="https://github.com/user-attachments/assets/7c2889a5-c649-4781-9ffc-9ec0734bcc26" />
+
 </div>
 
 ## ✨ Key Features
